@@ -1,16 +1,171 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple Page</title>
-</head>
-<body>
-    <h1>Welcome to My Website</h1>
-    <p>This is a simple HTML page.</p>
+  <title>CyberGirl</title>
 
-    <button onclick="alert('Hello, World!')">
-        Click Me
-    </button>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+    }
+
+    /* Tab buttons */
+    .tab {
+      overflow: hidden;
+      background-color: #333;
+      display: flex;
+    }
+
+    .tab button {
+      background-color: inherit;
+      color: white;
+      padding: 14px 16px;
+      border: none;
+      cursor: pointer;
+      flex: 1;
+      transition: 0.3s;
+    }
+
+    .tab button:hover {
+      background-color: #575757;
+    }
+
+    .tab button.active {
+      background-color: #04AA6D;
+    }
+
+    /* Tab content */
+    .tabcontent {
+      display: none;
+      padding: 20px;
+    }
+
+    /* Password box styles */
+    .container {
+      background: #f5f5f5;
+      padding: 20px;
+      border-radius: 10px;
+      width: 300px;
+      text-align: center;
+    }
+
+    input {
+      width: 80%;
+      padding: 10px;
+      margin: 10px 0;
+      font-size: 16px;
+    }
+
+    .pw-box {
+      margin-top: 15px;
+      padding: 10px;
+      background: white;
+      border: 1px solid #ccc;
+      word-break: break-all;
+      font-weight: bold;
+    }
+
+    .gen-btn {
+      padding: 10px;
+      width: 100%;
+      border: none;
+      background-color: #04AA6D;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    .gen-btn:hover {
+      background-color: #03955f;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Tabs -->
+  <div class="tab">
+    <button class="tablinks" onclick="openTab(event, 'Passwords')">Passwords</button>
+    <button class="tablinks" onclick="openTab(event, 'About')">About</button>
+    <button class="tablinks" onclick="openTab(event, 'Projects')">Projects</button>
+    <button class="tablinks" onclick="openTab(event, 'Contact')">Contact</button>
+  </div>
+
+  <!-- PASSWORD TAB -->
+  <div id="Passwords" class="tabcontent">
+    <h2>🔐 Password Generator</h2>
+
+    <div class="container">
+      <label>Password Length</label><br>
+      <input type="number" id="length" value="12" min="4" max="32">
+
+      <button class="gen-btn" onclick="generatePassword()">
+        Generate Password
+      </button>
+
+      <div class="pw-box" id="passwordBox">
+        Your password will appear here
+      </div>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <div id="About" class="tabcontent">
+    <h2>About</h2>
+    <p>This is a simple CyberGirl website with a password generator.</p>
+  </div>
+
+  <!-- PROJECTS -->
+  <div id="Projects" class="tabcontent">
+    <h2>Projects</h2>
+    <p>Here are some of my coding projects.</p>
+  </div>
+
+  <!-- CONTACT -->
+  <div id="Contact" class="tabcontent">
+    <h2>Contact</h2>
+    <p>Email: example@email.com</p>
+  </div>
+
+  <!-- JAVASCRIPT -->
+  <script>
+    function openTab(evt, tabName) {
+      let i, tabcontent, tablinks;
+
+      tabcontent = document.getElementsByClassName("tabcontent");
+      for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+      }
+
+      tablinks = document.getElementsByClassName("tablinks");
+      for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+      }
+
+      document.getElementById(tabName).style.display = "block";
+      evt.currentTarget.className += " active";
+    }
+
+    // Open default tab
+    document.getElementsByClassName("tablinks")[0].click();
+
+    // PASSWORD GENERATOR
+    function generatePassword() {
+      const length = document.getElementById("length").value;
+
+      const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+[]{}<>?";
+
+      let password = "";
+
+      for (let i = 0; i < length; i++) {
+        const randomIndex = Math.floor(Math.random() * chars.length);
+        password += chars[randomIndex];
+      }
+
+      document.getElementById("passwordBox").innerText = password;
+    }
+  </script>
+
 </body>
 </html>

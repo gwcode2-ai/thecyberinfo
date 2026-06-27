@@ -106,7 +106,14 @@
 
       <h1>🔐 Password Generator</h2>
       <label>Password Length</label><br>
-      <input type="number" id="length" value="12" min="4" max="32">
+      <input
+        type="text"
+        id="length"
+        value="12"
+        maxlength="3"
+        inputmode="numeric"
+        pattern="[0-9]*"
+        oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0,3)">
 
       <button class="gen-btn" onclick="generatePassword()">
         Generate Password

@@ -179,54 +179,54 @@
 
 
   <!-- CYBER LAB -->
-  <div id="CyberLab" class="tabcontent">
+  <!-- PASSWORD TAB -->
+<div id="Passwords" class="tabcontent">
+...
+</div>
 
-    <h2>🧪 Cyber Lab</h2>
+<!-- CYBER LAB -->
+<div id="CyberLab" class="tabcontent">
 
-    <p>
-      Test your cybersecurity skills! Can you identify phishing attempts?
-    </p>
+<h2>🧪 Cyber Lab</h2>
 
-
-    <div class="challenge-box">
-
-      <h3>Challenge #1: Spot the Phishing Email</h3>
-
-
-      <p>
-      <b>From:</b> support-security@gmail.com
-
-      <br><br>
-
-      <b>Email:</b>
-
-      <br>
-
-      "URGENT! Your account has been compromised.
-      Click this link immediately and enter your password to verify your identity."
-      </p>
+<p>
+Test your cybersecurity skills! Can you identify phishing attempts?
+</p>
 
 
-      <button class="gen-btn" onclick="checkAnswer('phishing')">
-      🚨 Phishing
-      </button>
+<div class="challenge-box">
+
+<h3 id="challengeTitle">Challenge #1: Spot the Threat</h3>
+
+<p id="question"></p>
 
 
-      <button class="gen-btn" onclick="checkAnswer('safe')">
-      ✅ Safe
-      </button>
+<button class="gen-btn" onclick="checkAnswer('phishing')">
+🚨 Phishing
+</button>
 
 
-      <h3 id="feedback"></h3>
+<button class="gen-btn" onclick="checkAnswer('safe')">
+✅ Safe
+</button>
 
-      <p id="score">
-      Score: 0
-      </p>
 
-    </div>
+<h3 id="feedback"></h3>
 
-  </div>
+<p id="score">
+Score: 0
+</p>
 
+
+</div>
+
+</div>
+
+
+<!-- ABOUT -->
+<div id="About" class="tabcontent">
+...
+</div>
 
 
 
@@ -314,45 +314,176 @@ function generatePassword() {
 
 
 
+// CYBER LAB GAME
 
 // CYBER LAB GAME
 
 let score = 0;
+let currentQuestion = 0;
 
 
-function checkAnswer(answer) {
+let questions = [
+
+{
+text: `<b>Message:</b><br>"Your school portal has a new assignment available. Log in through your usual school website to view it."`,
+answer: "safe"
+},
+
+{
+text: `<b>Email:</b><br>"URGENT! Your account will be deleted in 24 hours. Click this link and confirm your password immediately."`,
+answer: "phishing"
+},
+
+{
+text: `<b>Email:</b><br>"Your monthly bank statement is now available. Open your banking app to review it."`,
+answer: "safe"
+},
+
+{
+text: `<b>Text Message:</b><br>"Congratulations! You won a $500 gift card. Click this link and enter your credit card information to claim your prize."`,
+answer: "phishing"
+},
+
+{
+text: `<b>Email:</b><br>"Your teacher posted feedback on your assignment. Visit your class learning platform to view it."`,
+answer: "safe"
+},
+
+{
+text: `<b>Pop-up:</b><br>"Your computer has 5 viruses! Download this software immediately to fix your device."`,
+answer: "phishing"
+},
+
+{
+text: `<b>Email:</b><br>"Your favorite store has announced a sale. Visit their official website to see available discounts."`,
+answer: "safe"
+},
+
+{
+text: `<b>Social Media Message:</b><br>"Hey! I found your account. Send me your verification code so I can help you get a blue checkmark."`,
+answer: "phishing"
+},
+
+{
+text: `<b>Email:</b><br>"Your streaming subscription payment was processed. You can view your receipt in your account settings."`,
+answer: "safe"
+},
+
+{
+text: `<b>Phone Call:</b><br>"Hello, we are from your bank. Tell us your password and security code to verify your identity."`,
+answer: "phishing"
+}
+
+];
 
 
-  let feedback = document.getElementById("feedback");
-
-  let scoreDisplay = document.getElementById("score");
-
+// Randomize questions
+questions.sort(() => Math.random() - 0.5);
 
 
-  if(answer === "phishing") {
-
-
-    score++;
-
-
-    feedback.innerHTML =
-    "✅ Correct! This is phishing. Red flags include urgency, suspicious email addresses, and asking for passwords.";
-
-
-  } 
-  
-  else {
-
-
-    feedback.innerHTML =
-    "❌ Incorrect! Never trust emails asking for passwords or immediate action.";
-
-  }
+// Load first question
+document.getElementById("question").innerHTML =
+questions[currentQuestion].text;
 
 
 
-  scoreDisplay.innerHTML = "Score: " + score;
+function checkAnswer(answer){
 
+let feedback = document.getElementById("feedback");
+
+
+if(answer === questions[currentQuestion].answer){
+
+score++;
+
+feedback.innerHTML =
+"✅ Correct! Nice job identifying the threat.";
+
+}
+
+else{
+
+feedback.innerHTML =
+"❌ Incorrect! Look for suspicious links, urgency, and requests for personal information.";
+
+}
+
+
+document.getElementById("score").innerHTML =
+"Score: " + score;
+
+
+// Automatically move to next question
+setTimeout(nextQuestion, 2000);
+
+}
+
+
+
+
+function nextQuestion(){
+
+currentQuestion++;
+
+
+if(currentQuestion < questions.length){
+
+
+document.getElementById("challengeTitle").innerHTML =
+"Challenge #" + (currentQuestion + 1) + ": Spot the Threat";
+
+
+document.getElementById("question").innerHTML =
+questions[currentQuestion].text;
+
+
+document.getElementById("feedback").innerHTML = "";
+
+
+}
+
+else{
+
+
+let level;
+
+
+if(score === 10){
+
+level = "🏆 Cyber Expert";
+
+}
+
+else if(score >= 7){
+
+level = "🔐 Cyber Defender";
+
+}
+
+else if(score >= 5){
+
+level = "🛡️ Cyber Learner";
+
+}
+
+else{
+
+level = "🌱 Cyber Beginner";
+
+}
+
+
+document.getElementById("question").innerHTML =
+"You completed the Cyber Lab!";
+
+
+document.getElementById("feedback").innerHTML =
+"Final Score: " + score + "/10<br>" + level;
+
+
+document.getElementById("score").innerHTML = "";
+
+}
 
 }
 

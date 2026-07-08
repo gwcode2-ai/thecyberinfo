@@ -4,35 +4,42 @@
   <title>CyberGirl</title>
 
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-    }
+    
+   body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #0D1117;
+    color: #F0F6FC;
+   }
 
     /* Tab buttons */
-    .tab {
-      overflow: hidden;
-      background-color: #333;
-      display: flex;
-    }
+   .tab {
+    overflow: hidden;
+    background-color: #161B22;
+    display: flex;
+    border-bottom: 2px solid #58A6FF;
+   }
 
     .tab button {
-      background-color: inherit;
-      color: white;
-      padding: 14px 16px;
-      border: none;
-      cursor: pointer;
-      flex: 1;
-      transition: 0.3s;
-    }
+    background-color: inherit;
+    color: #F0F6FC;
+    padding: 20px;
+    border: none;
+    cursor: pointer;
+    flex: 1;
+    transition: 0.3s;
+    font-size: 16px;
+   }
 
-    .tab button:hover {
-      background-color: #575757;
-    }
+   .tab button:hover {
+    background-color: #58A6FF;
+    color: #0D1117;
+   }
 
-    .tab button.active {
-      background-color: #04AA6D;
-    }
+   .tab button.active {
+    background-color: #0D1117;
+    color: white;
+   }
 
     /* Tab content */
     .tabcontent {
@@ -42,7 +49,7 @@
 
     /* Password box styles */
     .container {
-      background: #f5f5f5;
+      background: #f6c7e5;
       padding: 20px;
       border-radius: 10px;
       width: 300px;
@@ -59,7 +66,7 @@
     .pw-box {
       margin-top: 15px;
       padding: 10px;
-      background: white;
+      background: rgb(249, 183, 238);
       border: 1px solid #ccc;
       word-break: break-all;
       font-weight: bold;
@@ -69,43 +76,71 @@
       padding: 10px;
       width: 100%;
       border: none;
-      background-color: #04AA6D;
-      color: white;
-      font-size: 16px;
+      background-color: #87c5d9;
+      color: rgb(42, 122, 192);
+      font-size: 19px;
       cursor: pointer;
-      border-radius: 5px;
+      border-radius: 8px;
     }
 
     .gen-btn:hover {
-      background-color: #03955f;
+      background-color: #8bf6c6;
     }
+
+
+    /* Cyber Lab styles */
+    .challenge-box {
+      background-color: #161B22;
+      padding: 25px;
+      border-radius: 10px;
+      max-width: 600px;
+      border: 1px solid #58A6FF;
+    }
+
+    .challenge-box button {
+      margin-top: 15px;
+    }
+
+    #feedback {
+      margin-top: 20px;
+    }
+
   </style>
 </head>
 
+
 <body>
+
 
   <!-- Tabs -->
   <div class="tab">
     <button class="tablinks" onclick="openTab(event, 'Passwords')">Passwords</button>
-    <button class="tablinks" onclick="openTab(event, 'About')">About</button>
     <button class="tablinks" onclick="openTab(event, 'Projects')">Security Bulletin</button>
+    <button class="tablinks" onclick="openTab(event, 'CyberLab')">Cyber Lab</button>
     <button class="tablinks" onclick="openTab(event, 'Contact')">Contact</button>
+    <button class="tablinks" onclick="openTab(event, 'About')">About</button>
   </div>
+
+
 
   <!-- PASSWORD TAB -->
   <div id="Passwords" class="tabcontent">
-   <div style="text-align: left; max-width: 700px; margin: 0 auto;">
+
+   <div style="text-align: left; max-width: 600px; margin: 0 auto;">
+
     <h2>Why is it important to have a password generator?</h2>
+
     <p>
         A password generator creates strong, random passwords that are much harder
         for attackers to guess. It also makes it easy to use a different password
-        for every account. Instead of thinking up a new password each time you
-        create an account, you can generate one instantly using this generator.
+        for every account.
     </p>
 
 
-      <h1>🔐 Password Generator</h2>
+      <h1>🔐 Password Generator</h1>
+
       <label>Password Length</label><br>
+
       <input
         type="text"
         id="length"
@@ -115,43 +150,101 @@
         pattern="[0-9]*"
         oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0,2)">
 
+
       <button class="gen-btn" onclick="generatePassword()">
         Generate Password
       </button>
 
+
       <div class="pw-box" id="passwordBox">
         Your password will appear here
       </div>
+
+
+    <h2>Why is it important to have a password storage manager?</h2>
+
+    <p>
+        Randomly generated passwords are hard to remember so you will need to store the password somewhere safe.
+
+        <li><a href="https://apps.apple.com/us/app/passwords/id6473799789" target="_blank">Apple Password Manager</a></li>
+        <li><a href="https://1password.com" target="_blank">1Password Password Manager</a></li>
+        <li><a href="https://www.bitwarden.com" target="_blank">Bitwarden Password Manager</a></li>
+    </p>
+
+   </div>
+
+  </div>
+
+
+
+
+  <!-- CYBER LAB -->
+  <div id="CyberLab" class="tabcontent">
+
+    <h2>🧪 Cyber Lab</h2>
+
+    <p>
+      Test your cybersecurity skills! Can you identify phishing attempts?
+    </p>
+
+
+    <div class="challenge-box">
+
+      <h3>Challenge #1: Spot the Phishing Email</h3>
+
+
+      <p>
+      <b>From:</b> support-security@gmail.com
+
+      <br><br>
+
+      <b>Email:</b>
+
       <br>
-      
-    <h2>Why is it important to have a password storage manager?</h2> 
 
-  <p>
-        Randomly generated passwords are hard to remember so you will need to store the password somewhere safe. 
-        Some widely trusted password managers are the following:
-        <li> <a href="https://apps.apple.com/us/app/passwords/id6473799789" target="_blank"> Apple Password Manager</a>
-        <li> <a href="https://1password.com" target="_blank"> 1Password Password Manager</a>
-        <li><a href="https://www.bitwarden.com" target="_blank">Bitwarden Password Manager</a>
-     
-  </p>
+      "URGENT! Your account has been compromised.
+      Click this link immediately and enter your password to verify your identity."
+      </p>
 
 
+      <button class="gen-btn" onclick="checkAnswer('phishing')">
+      🚨 Phishing
+      </button>
 
-</div>
-    
+
+      <button class="gen-btn" onclick="checkAnswer('safe')">
+      ✅ Safe
+      </button>
+
+
+      <h3 id="feedback"></h3>
+
+      <p id="score">
+      Score: 0
+      </p>
+
+    </div>
+
+  </div>
+
+
 
 
   <!-- ABOUT -->
   <div id="About" class="tabcontent">
     <h2>About</h2>
-    <p>This is a simple CyberGirl website with a password generator.</p>
+    <p>This is a CyberGirl website teaching users about cybersecurity.</p>
   </div>
+
+
 
   <!-- PROJECTS -->
   <div id="Projects" class="tabcontent">
-    <h2>Projects</h2>
-    <p>Here are some of my coding projects.</p>
+    <h2>Security Bulletin</h2>
+    <p>Here are some of my cybersecurity projects.</p>
   </div>
+
+
 
   <!-- CONTACT -->
   <div id="Contact" class="tabcontent">
@@ -159,44 +252,113 @@
     <p>Email: example@email.com</p>
   </div>
 
-  <!-- JAVASCRIPT -->
-  <script>
-    function openTab(evt, tabName) {
-      let i, tabcontent, tablinks;
 
-      tabcontent = document.getElementsByClassName("tabcontent");
-      for (i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.display = "none";
-      }
 
-      tablinks = document.getElementsByClassName("tablinks");
-      for (i = 0; i < tablinks.length; i++) {
-        tablinks[i].className = tablinks[i].className.replace(" active", "");
-      }
+<script>
 
-      document.getElementById(tabName).style.display = "block";
-      evt.currentTarget.className += " active";
-    }
+function openTab(evt, tabName) {
 
-    // Open default tab
-    document.getElementsByClassName("tablinks")[0].click();
+  let tabcontent = document.getElementsByClassName("tabcontent");
 
-    // PASSWORD GENERATOR
-    function generatePassword() {
-      const length = document.getElementById("length").value;
+  for (let i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
 
-      const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+[]{}<>?";
 
-      let password = "";
+  let tablinks = document.getElementsByClassName("tablinks");
 
-      for (let i = 0; i < length; i++) {
-        const randomIndex = Math.floor(Math.random() * chars.length);
-        password += chars[randomIndex];
-      }
+  for (let i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
 
-      document.getElementById("passwordBox").innerText = password;
-    }
-  </script>
+
+  document.getElementById(tabName).style.display = "block";
+
+  evt.currentTarget.className += " active";
+
+}
+
+
+// Open default tab
+document.getElementsByClassName("tablinks")[0].click();
+
+
+
+
+// PASSWORD GENERATOR
+
+function generatePassword() {
+
+  const length = document.getElementById("length").value;
+
+
+  const chars =
+  "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+[]{}<>?";
+
+
+  let password = "";
+
+
+  for (let i = 0; i < length; i++) {
+
+    const randomIndex = Math.floor(Math.random() * chars.length);
+
+    password += chars[randomIndex];
+
+  }
+
+
+  document.getElementById("passwordBox").innerText = password;
+
+}
+
+
+
+
+// CYBER LAB GAME
+
+let score = 0;
+
+
+function checkAnswer(answer) {
+
+
+  let feedback = document.getElementById("feedback");
+
+  let scoreDisplay = document.getElementById("score");
+
+
+
+  if(answer === "phishing") {
+
+
+    score++;
+
+
+    feedback.innerHTML =
+    "✅ Correct! This is phishing. Red flags include urgency, suspicious email addresses, and asking for passwords.";
+
+
+  } 
+  
+  else {
+
+
+    feedback.innerHTML =
+    "❌ Incorrect! Never trust emails asking for passwords or immediate action.";
+
+  }
+
+
+
+  scoreDisplay.innerHTML = "Score: " + score;
+
+
+}
+
+
+</script>
+
 
 </body>
 </html>

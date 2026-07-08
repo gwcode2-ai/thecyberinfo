@@ -5,11 +5,27 @@
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
+    #CyberLab h2 {
+  font-size: 40px;
+}
+
+#CyberLab p {
+  font-size: 20px;
+}
+
+#challengeTitle {
+  font-size: 22px;
+}
+
+#question {
+  font-size: 22px;
+  line-height: 1.6;
+}
     
    body {
     font-family: "Oswald", sans-serif;
     margin: 0;
-    background-color: #bfb9b6;
+    background-color: #c6d6cd;
     color: #504333f4;
    }
 
@@ -67,7 +83,7 @@
     .pw-box {
       margin-top: 15px;
       padding: 10px;
-      background: rgb(239, 176, 182);
+      background: rgb(233, 229, 226);
       border: 1px solid #000000;
       word-break: break-all;
       font-weight: bold;
@@ -91,19 +107,19 @@
 
     /* Cyber Lab styles */
     .challenge-box {
-      background-color: #161B22;
+      background-color: #e8efe9;
       padding: 25px;
       border-radius: 10px;
       max-width: 600px;
-      border: 1px solid #031830;
+      border: 1px solid #455a4c;
     }
 
     .challenge-box button {
-      margin-top: 15px;
+      margin-top: 30px;
     }
 
     #feedback {
-      margin-top: 20px;
+      margin-top: 50px;
     }
 
   </style>
@@ -217,16 +233,39 @@ Test your cybersecurity skills! Can you identify phishing attempts?
 <p id="score">
 Score: 0
 </p>
-
-
 </div>
-
 </div>
 
 
 <!-- ABOUT -->
 <div id="About" class="tabcontent">
-...
+
+
+    <h2>About CyberGirl</h2>
+
+    <p>
+    CyberGirl is a cybersecurity education website designed to help users learn
+    about online safety, password protection, and common cyber threats through
+    interactive tools and challenges.
+    </p>
+
+
+    <h2>Security Disclaimer</h2>
+
+    <p>
+    The information provided on CyberGirl is for educational purposes only.
+    This website is designed to promote cybersecurity awareness and responsible
+    online practices.
+
+    CyberGirl does not provide professional cybersecurity services, guarantee
+    complete protection from cyber threats, or encourage unauthorized access to
+    systems, accounts, or data.
+
+    Users should always follow safe cybersecurity practices and rely on trusted
+    sources for security decisions.
+    </p>
+
+</div>
 </div>
 
 
@@ -457,19 +496,19 @@ level = "🏆 Cyber Expert";
 
 else if(score >= 7){
 
-level = "🔐 Cyber Defender";
+level = "Cyber Defender";
 
 }
 
 else if(score >= 5){
 
-level = "🛡️ Cyber Learner";
+level = " Cyber Learner";
 
 }
 
 else{
 
-level = "🌱 Cyber Beginner";
+level = "Cyber Beginner";
 
 }
 

@@ -5,6 +5,20 @@
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
+    .dictionary-box {
+  background-color: #e9e5e2;
+  padding: 25px;
+  border-radius: 12px;
+  max-width: 600px;
+  margin-top: 25px;
+  border: 3px solid #1b3022;
+  color: #504333;
+}
+
+.dictionary-box li {
+  line-height: 1.6;
+  font-size: 17px;
+}
     .site-footer {
   margin-top: 40px;
   padding: 20px;
@@ -277,10 +291,60 @@ Score: 0
 
 
   <!-- PROJECTS -->
-  <div id="Projects" class="tabcontent">
-    <h2>Security Bulletin</h2>
-    <p>Here are some of my cybersecurity projects.</p>
+<div id="Projects" class="tabcontent">
+
+  <h2>📰 Security Bulletin</h2>
+
+  <p>Here are some of my cybersecurity projects and resources.</p>
+
+
+  <div class="dictionary-box">
+
+    <h2>📖 Cyber Dictionary</h2>
+
+    <p>Learn common cybersecurity terms:</p>
+
+    <ol>
+
+      <li>
+      <b>Phishing:</b> A cyber attack where someone pretends to be a trusted person or company to trick you into sharing personal information.
+      </li>
+
+      <br>
+
+      <li>
+      <b>Malware:</b> Harmful software created to damage devices, steal information, or disrupt systems.
+      </li>
+
+      <br>
+
+      <li>
+      <b>Encryption:</b> A process that converts information into a secure code to prevent unauthorized access.
+      </li>
+
+      <br>
+
+      <li>
+      <b>Two-Factor Authentication (2FA):</b> An extra security step that requires a second form of verification besides your password.
+      </li>
+
+      <br>
+
+      <li>
+      <b>Password Manager:</b> A tool that securely stores and manages passwords.
+      </li>
+
+      <br>
+
+      <li>
+      <b>Firewall:</b> A security system that monitors and controls network traffic.
+      </li>
+
+    </ol>
+
   </div>
+
+</div>
 
 
 
@@ -354,7 +418,6 @@ function generatePassword() {
 
 // CYBER LAB GAME
 
-// CYBER LAB GAME
 
 let score = 0;
 let currentQuestion = 0;
@@ -410,7 +473,9 @@ answer: "safe"
 {
 text: `<b>Phone Call:</b><br>"Hello, we are from your bank. Tell us your password and security code to verify your identity."`,
 answer: "phishing"
+
 }
+
 
 ];
 
